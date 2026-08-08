@@ -1,0 +1,26 @@
+# Zerops deployment configuration for Next.js AGENTS.md Generator
+# Documentation: https://docs.zerops.io/references/zerops-yml
+
+zerops:
+  - setup: app
+    build:
+      base: nodejs@22
+      buildCommands:
+        - npm ci
+        - npm run build
+      deployFiles:
+        - .next
+        - public
+        - package.json
+        - package-lock.json
+        - next.config.mjs
+        - node_modules
+    run:
+      base: nodejs@22
+      ports:
+        - port: 3000
+          httpSupport: true
+      start: npm run start
+      # Environment variables can be configured in the Zerops GUI dashboard:
+      # - GEMINI_API_KEY (Required: Your Google Gemini API Key)
+      # - GITHUB_TOKEN (Optional: GitHub Personal Access Token for higher rate limits)
