@@ -2,7 +2,7 @@
 # Documentation: https://docs.zerops.io/references/zerops-yml
 
 zerops:
-  - setup: app
+  - setup: nodejs
     build:
       base: nodejs@22
       buildCommands:
