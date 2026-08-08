@@ -198,19 +198,29 @@ body {
   color: var(--foreground-dim);
 }
 
-/* ---- Spinner ---- */
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-.spinner {
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--border);
-  border-top-color: var(--accent);
+/* ---- Single Green Blinking Dot ---- */
+.green-blinking-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  animation: spin 0.8s linear infinite;
+  background-color: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  animation: greenBlink 1.2s ease-in-out infinite;
+  vertical-align: middle;
+}
+
+@keyframes greenBlink {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.85);
+    box-shadow: 0 0 2px rgba(16, 185, 129, 0.2);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.9);
+  }
 }
 
 /* ---- Markdown output ---- */
